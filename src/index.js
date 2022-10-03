@@ -1,7 +1,7 @@
 import './sass/main.scss';
 import Notiflix from 'notiflix';
 import fetchPictures from './js/fetchPictures';
-import SimpleLightbox from '`simplelightbox`';
+import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import LoadMoreBtn from './js/loadMoreBtn';
 
@@ -63,9 +63,7 @@ function renderPictures(pictures) {
         return;
     }
     
-    if (picturesCounter > 0) {
-        //После первого запроса при каждом новом поиске выводить уведомление
-        //в котором будет написано сколько всего нашли изображений(свойство totalHits)
+    if (picturesCounter > 0) 
         if (ifTextEntered) {
             Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`)
             ifTextEntered = false;
@@ -74,7 +72,6 @@ function renderPictures(pictures) {
         loadMoreBtn.enable();
         loadMoreBtn.show();
         
-        //add html structure
         const galleryMarkup = pictures.data.hits.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) =>
             ` <div class="gallery__card">
             <a class="gallery__card__item href="${largeImageURL}">
@@ -109,11 +106,6 @@ function renderPictures(pictures) {
         }
     }
  
-
-
-
-}
-    //add loadMoreBtn
     
     loadMoreButton.addEventListener('click', onloadMore);
 
